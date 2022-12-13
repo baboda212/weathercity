@@ -120,3 +120,41 @@ fetch(API_URL)
     })
 };
 getWeatherData2()
+
+// 현재위치
+function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+  
+  function showPosition(position) {
+    let pos = {
+      lat: position.coords.latitude,
+      lon: position.coords.longitude
+    }
+  
+    getCurrentWeatherData(pos.lat, pos.lon)  
+  }
+  
+  function getCurrentWeatherData(lat, lon) {
+    // 도시명 업데이트
+    API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`
+    
+    fetch(API_URL)
+    .then(function(응답데이터){
+      return 응답데이터.json()
+    })
+    .then(function(data){
+      console.log(data);
+      showWeather(data)
+        const temp4 = parseInt(data.main.temp - 273.15);
+        const tempEl4 = document.querySelector('.temp4');
+        tempEl4.innerHTML = `${temp4}&deg`;
+    })
+  
+  } // getCurrentWeatherData
+  
+  getLocation();
