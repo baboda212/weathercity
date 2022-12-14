@@ -76,10 +76,10 @@ body {
     background-image: url('https://source.unsplash.com/7CME6Wlgrdk/1600x900');
 }
 
-.weather1, .weather2, .weather3{
+.weather1{
     width: 365px;
     height: 150px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 15px;
     margin-bottom: 10px;
 }
