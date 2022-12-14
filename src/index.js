@@ -64,8 +64,7 @@ fetch(API_URL)
     tempEl1.innerHTML = `${temp1}&deg`; */
 });
 
-function getWeatherData(){
-    city_name = 'new york';
+function getWeatherData(city_name){
     let API_URL = 
 `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_KEY}`;
 fetch(API_URL)
@@ -77,51 +76,30 @@ fetch(API_URL)
         const name1 = data.name;
         const citynameEl1 = document.querySelector('.cityname1');
         const tempEl1 = document.querySelector('.temp1');
-        citynameEl1.textContent = name1;
-        tempEl1.innerHTML = `${temp1}&deg`;
+        // citynameEl1.textContent = name1;
+        //tempEl1.innerHTML = `${temp1}&deg`;
+        const weather = document.createElement('div');
+        weather.classList.add('weather1');
+        let html = `
+            <div class="weather1">
+                <ul>
+                    <li class="cityname1">${city_name}</li>
+                    <li class="temp1">${temp1} &deg;</li>
+                </ul>
+            </div>
+        `
+        weather.innerHTML += html;
+        document.querySelector('.city').appendChild(weather);
+        console.log(weather)
+
     })
 };
-getWeatherData()
+getWeatherData('New York');
+getWeatherData('Paris');
+getWeatherData('London');
 
-function getWeatherData1(){
-    city_name = 'paris';
-    let API_URL = 
-`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_KEY}`;
-fetch(API_URL)
-    .then(function(응답데이터){
-        return 응답데이터.json();
-    })
-    .then(function(data){
-        const temp2 = parseInt(data.main.temp - 273.15);
-        const name2 = data.name;
-        const citynameEl2 = document.querySelector('.cityname2');
-        const tempEl2 = document.querySelector('.temp2');
-        citynameEl2.textContent = name2;
-        tempEl2.innerHTML = `${temp2}&deg`;
-    })
-};
-getWeatherData1()
 
-function getWeatherData2(){
-    city_name = 'london';
-    let API_URL = 
-`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${API_KEY}`;
-fetch(API_URL)
-    .then(function(응답데이터){
-        return 응답데이터.json();
-    })
-    .then(function(data){
-        const temp3 = parseInt(data.main.temp - 273.15);
-        const name3 = data.name;
-        const citynameEl3 = document.querySelector('.cityname3');
-        const tempEl3 = document.querySelector('.temp3');
-        citynameEl3.textContent = name3;
-        tempEl3.innerHTML = `${temp3}&deg`;
-    })
-};
-getWeatherData2()
-
-// 현재위치
+/* // 현재위치
 function getLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
@@ -157,4 +135,4 @@ function getLocation() {
   
   } // getCurrentWeatherData
   
-  getLocation();
+  getLocation(); */

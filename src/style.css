@@ -21,7 +21,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 212px auto;
+    margin: 160px auto;
     border-radius: 15px;
 }
 .weather{
@@ -76,9 +76,9 @@ body {
     background-image: url('https://source.unsplash.com/7CME6Wlgrdk/1600x900');
 }
 
-.weather1, .weather2, .weather3, .weather4{
+.weather1, .weather2, .weather3{
     width: 365px;
-    height: 100px;
+    height: 150px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
     margin-bottom: 10px;
@@ -88,6 +88,7 @@ body {
     padding: 10px;
     display: flex;
     justify-content: space-around;
+    padding-top: 30px;
 }
 .city ul li{
     margin-right: 10px;
