@@ -74,8 +74,10 @@ fetch(API_URL)
     .then(function(data){
         const temp1 = parseInt(data.main.temp - 273.15);
         const name1 = data.name;
+        const icon1 = data.weather[0].icon;
         const citynameEl1 = document.querySelector('.cityname1');
         const tempEl1 = document.querySelector('.temp1');
+        const iconEl1 = document.querySelector('.icon1');
         // citynameEl1.textContent = name1;
         //tempEl1.innerHTML = `${temp1}&deg`;
         const weather = document.createElement('div');
@@ -85,6 +87,7 @@ fetch(API_URL)
                 <ul>
                     <li class="cityname1">${city_name}</li>
                     <li class="temp1">${temp1} &deg;</li>
+                    <li class="icon1"><img src=src/images/${icon1}.svg alt='아이콘'/></li>
                 </ul>
             </div>
         `
