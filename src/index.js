@@ -33,17 +33,19 @@ function getLocation() {
     })
     .then(function(data){
       console.log(data);
-      //showWeather(data)
-        const temp = parseInt(data.main.temp - 273.15);
-        const desc = data.weather[0].main;
-        const weather_icon = data.weather[0].icon;
-        const name = data.name;
+      //showWeather(data) 데이터가 들어오는지 확인
+        const temp = parseInt(data.main.temp - 273.15); //현재온도(캘빈온도)를 정수로 변환 parseInt
+        const desc = data.weather[0].main; //날씨 상태 설명
+        const weather_icon = data.weather[0].icon; //날씨 아이콘
+        const name = data.name; //도시명
+
+        //DOM출력
         const tempEl = document.querySelector('.temp');
         const descEl = document.querySelector('.desc');
-        tempEl.innerHTML = `${temp}&deg`;
         const iconEl = document.querySelector('.icon');
         const citynameEl = document.querySelector('.cityname');
         
+        tempEl.innerHTML = `${temp}&deg`;
         citynameEl.textContent = name;
         iconEl.innerHTML = `<img src=src/images/${weather_icon}.svg alt='아이콘'/>`;
         tempEl.innerHTML = `${temp}&deg`;
