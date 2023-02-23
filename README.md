@@ -1,4 +1,5 @@
 # weathercity
+### 배포 https://baboda212.github.io/weathercity/
 1. openweather.org 상 API를 응용한 날씨웹 구현
 2. 날씨 상황에 따른 배경화면 변경
 3. 세계도시 중 일부 추가 등록(런던, 파리, 뉴욕)
